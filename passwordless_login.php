@@ -333,7 +333,7 @@ function wpa_autologin_via_url(){
 
     if( $_SERVER['REQUEST_METHOD'] === "HEAD" ){
         // Redirect to HomePage when REQUEST_METHOD is set to HEAD (avoid issues regarding antivirus Link Protection)
-        wp_redirect( home_url(), 301 );
+        wp_redirect( 'userprivatefiles', 301 );
         exit;
     }
 
@@ -372,7 +372,7 @@ function wpa_autologin_via_url(){
 				$wppb_custom_redirects_url = wppb_custom_redirect_url( 'after_login', $current_page_url );
 			}
 
-			$redirect_url = !empty( $wppb_custom_redirects_url ) ? $wppb_custom_redirects_url : $current_page_url;
+			$redirect_url = 'userprivatefiles';
 
 			wp_redirect( apply_filters('wpa_after_login_redirect', $redirect_url ) );
 			exit;
